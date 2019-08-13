@@ -6,9 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './common/public.css'
+import axios from 'axios'
 
 Vue.use(ElementUI)
-
+Vue.use(axios)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
