@@ -7,7 +7,7 @@
             <el-input v-model="form.username"></el-input>
           </el-form-item>
           <el-form-item label="密码">
-            <el-input v-model="form.password"></el-input>
+            <el-input type="password" v-model="form.password"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">登录</el-button>
@@ -37,8 +37,10 @@ export default {
   },
   methods: {
     async onSubmit () {
-      let res = await this.$Http.postLogin(this.formInline, false)
-      console.log(res)
+      let res = await this.$Http.postLogin(this.form, false)
+      if (res.errno === 0) {
+        this.$router.push({path: '/new'})
+      }
     }
   }
 }
