@@ -1,6 +1,20 @@
 <template>
   <div class="login" ref='logins' :style="loginBgc">
-    <div class="main"></div>
+    <div class="main">
+      <div class="content">
+        <el-form ref="form" :model="form" label-width="54px">
+          <el-form-item label="用户名">
+            <el-input v-model="form.username"></el-input>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input v-model="form.password"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="onSubmit">登录</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,11 +25,21 @@ export default {
     return {
       loginBgc: {
         background: 'url(' + require('../../static/bgc.png') + ') no-repeat'
+      },
+      form: {
+        username: '',
+        password: ''
       }
     }
   },
   mounted () {
     this.$refs.logins.style.height = document.documentElement.clientHeight + 'px'
+  },
+  methods: {
+    async onSubmit () {
+      let res = await this.$Http.postLogin(this.formInline, false)
+      console.log(res)
+    }
   }
 }
 </script>
@@ -28,7 +52,16 @@ export default {
   .main
     height 100%
     width 460px
-    background-color #064e55
-    opacity 0.5
+    background-color rgba(6, 80, 88, 0.5)
     margin-left 56.666%
+    .content
+      width 80%
+      height 60%
+      padding-top 70%
+      margin 0 auto
+</style>
+<style lang="stylus">
+.login
+  .el-form-item__label
+    color #ffffff
 </style>
