@@ -21,6 +21,8 @@ export default {
       let res = await this.$Http.getBlogList()
       if (res.errno === 0) {
         this.blogList = res.data
+      } else {
+        this.$router.push({path: '/login'})
       }
     }
   }

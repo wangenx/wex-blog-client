@@ -55,10 +55,6 @@ instance.interceptors.request.use(config => {
 
 // 响应拦截器
 instance.interceptors.response.use(res => {
-  console.log(res.data.errno)
-  if (res.data.errno === -1) {
-    Vue.$router.push({path: '/login'})
-  }
   return res.data
 }, () => {
   console.log('请求错误')
