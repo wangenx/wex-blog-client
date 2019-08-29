@@ -39,7 +39,7 @@ export default {
     // 登录
     async onSubmit () {
       let res = await this.$Http.postLogin(this.form, false)
-      if (res.errno === -1) {
+      if (res.errno === 0) {
         this.$router.push({path: '/new'})
       }
     }
