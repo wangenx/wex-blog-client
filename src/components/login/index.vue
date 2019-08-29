@@ -33,12 +33,13 @@ export default {
     }
   },
   mounted () {
-    this.$refs.logins.style.height = document.documentElement.clientHeight + 'px'
+    // this.$refs.logins.style.height = document.documentElement.clientHeight + 'px'
   },
   methods: {
+    // 登录
     async onSubmit () {
       let res = await this.$Http.postLogin(this.form, false)
-      if (res.errno === 0) {
+      if (res.errno === -1) {
         this.$router.push({path: '/new'})
       }
     }
@@ -50,7 +51,9 @@ export default {
 <style scoped lang="stylus">
 .login
   width 100%
+  height 100%
   margin 0 auto
+  background-size cover
   .main
     height 100%
     width 460px
@@ -66,4 +69,10 @@ export default {
 .login
   .el-form-item__label
     color #ffffff
+html
+  height 100%
+  > body
+    height 100%
+    > div
+      height 100%
 </style>

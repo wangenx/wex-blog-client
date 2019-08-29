@@ -3,6 +3,10 @@ const LOGIN_API = {
     method: 'post',
     url: '/user/login'
   },
+  getLogin: {
+    method: 'get',
+    url: '/user/session-test'
+  },
   getBlogList: {
     method: 'get',
     url: '/blog/list'

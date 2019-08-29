@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Api from './api'
-
+axios.defaults.withCredentials = true
 let instance = axios.create({
   baseURL: 'http://localhost:8000/api',
   timeout: 60 * 1000
@@ -55,6 +55,10 @@ instance.interceptors.request.use(config => {
 
 // 响应拦截器
 instance.interceptors.response.use(res => {
+  console.log(res.data.errno)
+  if (res.data.errno === -1) {
+    Vue.$router.push({path: '/login'})
+  }
   return res.data
 }, () => {
   console.log('请求错误')
