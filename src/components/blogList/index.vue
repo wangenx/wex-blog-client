@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div v-for="(item , index) in blogList" v-bind:key="index">
-      <span>{{item.title}}</span>
+    <div class="main">
+      <div class="title">关于一篇博客的文章</div>
+      <ul class="clearfix">
+        <li>CSS</li>
+        <li>HTML</li>
+        <li>JS</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -28,5 +33,12 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-
+.main
+  .title
+    font-size 16px
+    color #333
+  ul
+    text-align center
+    li
+      float left  
 </style>

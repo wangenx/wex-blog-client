@@ -40,6 +40,7 @@ export default {
     async onSubmit () {
       let res = await this.$Http.postLogin(this.form, false)
       if (res.errno === 0) {
+        window.localStorage.setItem('username', this.form.username)
         this.$router.push({path: '/new'})
       }
     }
