@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav">
-      <router-link :class="" v-for='item in list' v-bind:key='item.id' :to='item.path'>{{item.name}}</router-link>
+      <router-link v-for='item in list' v-bind:key='item.id' :to='item.path'>{{item.name}}</router-link>
     </div>
     <router-view class="content"></router-view>
   </div>
@@ -49,5 +49,5 @@ export default {
     border-bottom 1px solid #dddddd
 .content
   width 1200px
-  margin 30px auto 0 
+  margin 30px auto 0
 </style>

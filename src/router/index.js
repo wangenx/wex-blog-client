@@ -29,7 +29,7 @@ export default new Router({
         {
           path: '/new',
           name: 'newBlog',
-          component: newBlog,
+          component: newBlog
         },
         {
           path: '/tabs',
